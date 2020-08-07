@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Gerenciador de Contatos com Spring Boot</title>
+</head>
+<body>
+	<h1>Abastecimentos</h1>
+	<form action="#" th:action="@{/abastecimentos/todos}" method="get">
+		<input type="submit" value="Mostrar Todos">
+	</form>
+	<form action="#" th:action="@{/abastecimentos/buscar}" method="post">
+		<label for="id">idabastecimento:</label>
+		<input type="number" name="idabastecimento" id="id" placeholder="id">
+		<input type="submit" value="Buscar">
+	</form>
+	<form action="#" th:action="@{/abastecimentos/buscarcombustivel}" method="post">
+		<label for="nome">tipocombustivel:</label>
+		<input type="text" name="tipocombustivel" id="tipocombustivel" placeholder="tipocombustivel">
+		<input type="submit" value="Buscar">
+	</form>
+	<form action="#" th:action="@{/abastecimentos/novo}" method="get">
+		<input type="submit" value="Inserir">
+	</form><hr>
+	<h1>Veículos</h1>
+	<form action="#" th:action="@{/veiculos/todos}" method="get">
+		<input type="submit" value="Mostrar Todos">
+	</form>
+	<form action="#" th:action="@{/veiculos/buscar}" method="post">
+		<label for="idVeiculo">idVeiculo:</label>
+		<input type="number" name="idveiculo" id="idVeiculo" placeholder="idveiculo">
+		<input type="submit" value="Buscar">
+	</form>
+	<form action="#" th:action="@{/veiculos/novoVeiculo}" method="get">
+		<input type="submit" value="Inserir Veículo">
+	</form>
+</body>
+</html>

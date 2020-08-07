@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Gerenciador de Abastecimentos com Spring Boot</title>
+</head>
+<body>
+	<h1>Abastecimento buscado pelo Id</h1>
+	
+	<p>id: [[${abastecimento.idabastecimento}]]</p>
+	<p>idveiculo: [[${abastecimento.idveiculo}]]</p>
+	<p>idusuario: [[${abastecimento.idusuario}]]</p>
+	<p>dia: [[${abastecimento.dia}]]</p>
+	<p>hora: [[${abastecimento.hora}]]</p>
+	<p>kmatual: [[${abastecimento.kmatual}]]</p>
+	<p>valor: [[${abastecimento.valor}]]</p>
+	<p>litros: [[${abastecimento.litros}]]</p>
+	<p>tipocombustivel: [[${abastecimento.tipocombustivel}]]</p>
+	<hr>
+	
+	<a th:href="@{/}">Voltar</a>
+</body>
+</html>

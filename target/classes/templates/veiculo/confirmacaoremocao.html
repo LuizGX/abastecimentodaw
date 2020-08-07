@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Gerenciador de Veiculos com Spring Boot</title>
+</head>
+<body>
+	<h1>Tem certeza que quer Remover o Veiculo?</h1>
+
+	<p>idVeiculo: [[${veiculo.idveiculo}]]</p>
+	<p>Placa: [[${veiculo.placa}]]</p>
+	<p>Modelo: [[${veiculo.modelo}]]</p>
+	<p>Ano: [[${veiculo.ano}]]</p>
+	<form action="#" th:action="@{/veiculos/remover}" method="post">
+		<input type="hidden" name="idveiculo" th:value="${veiculo.idveiculo}">
+		<input type="submit" value="Remover">
+	</form>
+	<hr>
+
+	<a th:href="@{/}">Voltar</a>
+</body>
+</html>

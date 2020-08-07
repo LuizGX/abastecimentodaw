@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Gerenciador de Abastecimentos com Spring Boot</title>
+</head>
+<body>
+	<h1>Novo Abastecimento</h1>
+	
+	<form action="#" th:action="@{/abastecimentos/novo}" th:object="${abastecimento}" method="post">
+		<input type="hidden" th:field="*{idabastecimento}">
+		<input type="hidden" th:field="*{idveiculo}">
+		<input type="hidden" th:field="*{idusuario}">
+		<p>
+			<label for="diahora">dia:</label>
+			<input type="text" id="dia" th:field="*{dia}" placeholder="dia">
+		</p>
+		<p>
+			<label for="diahora">hora:</label>
+			<input type="text" id="hora" th:field="*{hora}" placeholder="hora">
+		</p>
+		<p>
+			<label for="kmatual">kmatual:</label>
+			<input type="text" id="kmatual" th:field="*{kmatual}" placeholder="kmatual">
+		</p>
+		<p>
+			<label for="valor">valor:</label>
+			<input type="text" id="valor" th:field="*{valor}" placeholder="valor">
+		</p>
+		<p>
+			<label for="litros">litros:</label>
+			<input type="text" id="litros" th:field="*{litros}" placeholder="litros">
+		</p>
+		<p>
+			<label for="tipocombustivel">tipocombustivel:</label>
+			<input type="text" id="tipocombustivel" th:field="*{tipocombustivel}" placeholder="tipocombustivel">
+		</p>
+		<input type="submit" value="Inserir">
+	</form>
+	
+	<a th:href="@{/}">Voltar</a>
+</body>
+</html>
