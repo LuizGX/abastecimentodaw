@@ -16,6 +16,10 @@ public class Usuario {
 	private String endereco;
 	private String telefone;
 	
+	public Usuario() {
+		
+	}
+
 	public Usuario(long idusuario, String nome, String endereco, String telefone) {
 		this.idusuario = idusuario;
 		this.nome = nome;

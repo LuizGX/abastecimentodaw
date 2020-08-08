@@ -16,8 +16,6 @@ public class Veiculo {
 	private String modelo;
 	private String ano;
 	
-	
-	
 	public Veiculo() {
 	}
 

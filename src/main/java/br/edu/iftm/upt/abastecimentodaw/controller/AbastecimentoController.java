@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.iftm.upt.abastecimentodaw.modelo.Abastecimento;
+import br.edu.iftm.upt.abastecimentodaw.modelo.Usuario;
+import br.edu.iftm.upt.abastecimentodaw.modelo.Veiculo;
 import br.edu.iftm.upt.abastecimentodaw.repository.Abastecimentos;
+import br.edu.iftm.upt.abastecimentodaw.repository.Usuarios;
+import br.edu.iftm.upt.abastecimentodaw.repository.Veiculos;
 import br.edu.iftm.upt.abastecimentodaw.service.AbastecimentoService;
 
 @Controller
@@ -24,6 +28,12 @@ public class AbastecimentoController {
 	
 	@Autowired
 	private Abastecimentos abastecimentos;
+	
+	@Autowired
+	private Veiculos veiculos;
+
+	@Autowired
+	private Usuarios usuarios;
 	
 	@Autowired
 	private AbastecimentoService abastecimentosService;
@@ -97,10 +107,18 @@ public class AbastecimentoController {
 	}
 	
 	@GetMapping("/novo")
-	public String direcionarParaInsercao(Abastecimento abastecimento) {
+	public ModelAndView direcionarParaInsercao(Abastecimento abastecimento) {
+		ModelAndView mv = new ModelAndView("novoabastecimento");
 		logger.trace("Entrou em direcionarParaInsercao");
 		logger.trace("Encaminhando para a view novoabastecimento");
-		return "novoabastecimento";
+		
+		List<Veiculo> todosVeiculos = veiculos.findAll();
+		mv.addObject("veiculos",todosVeiculos);
+		
+		List<Usuario> todosUsuarios = usuarios.findAll();
+		mv.addObject("usuarios", todosUsuarios);
+		
+		return mv;
 	}
 	
 	@PostMapping("/novo")

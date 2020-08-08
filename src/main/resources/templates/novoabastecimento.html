@@ -10,14 +10,26 @@
 	
 	<form action="#" th:action="@{/abastecimentos/novo}" th:object="${abastecimento}" method="post">
 		<input type="hidden" th:field="*{idabastecimento}">
-		<input type="hidden" th:field="*{idveiculo}">
-		<input type="hidden" th:field="*{idusuario}">
+		
+		<label>Funcionário:</label><br>
+		<select id="idusuario" th:field="*{usuario}" required>
+			<option th:each="usuario : ${usuarios}" th:value="${usuario.idusuario}">
+			[[${usuario.nome}]]</option>
+		</select><br>
+		
+		<label>Placa do Carro:</label><br>
+		<select id="idveiculo" th:field="*{veiculo}" required>
+			<option th:each="veiculo : ${veiculos}" th:value="${veiculo.idveiculo}">
+			[[${veiculo.placa}]]</option>
+		</select>
+		<br>
+		
 		<p>
-			<label for="diahora">dia:</label>
+			<label for="dia">Data: </label>
 			<input type="text" id="dia" th:field="*{dia}" placeholder="dia">
 		</p>
 		<p>
-			<label for="diahora">hora:</label>
+			<label for="hora">Hora: </label>
 			<input type="text" id="hora" th:field="*{hora}" placeholder="hora">
 		</p>
 		<p>
