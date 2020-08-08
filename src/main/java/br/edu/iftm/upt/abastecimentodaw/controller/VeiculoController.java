@@ -3,14 +3,19 @@ package br.edu.iftm.upt.abastecimentodaw.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.iftm.upt.abastecimentodaw.modelo.Veiculo;
 import br.edu.iftm.upt.abastecimentodaw.repository.Veiculos;
@@ -68,21 +73,30 @@ public class VeiculoController {
 	}
 	
 	@GetMapping("/novoVeiculo")
-	public String direcionarParaInsercaoVeiculo(Veiculo veiculo) {
+	public ModelAndView direcionarParaInsercaoVeiculo(Veiculo veiculo) {
 		logger.trace("Entrou em direcionarParaInsercao");
 		logger.trace("Encaminhando para a view novoveiculo");
-		return "veiculo/novoveiculo";
+		return new ModelAndView("veiculo/novoveiculo");
 	}
 	
 	@PostMapping("novoVeiculo")
-	public ModelAndView inserirNovoVeiculo(Veiculo veiculo) {
+	public ModelAndView inserirNovoVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes atributos) {
 		logger.trace("Entrou em inserirNovoAbastecimento");
 		logger.debug("Abastecimento recebido para inserir: {}", veiculo);
-		veiculoService.salvar(veiculo);
-		ModelAndView mv = new ModelAndView("mostrarmensagem");
-		mv.addObject("mensagem", "Veiculo inserido com sucesso!");
-		logger.trace("Encaminhando para a view mostrarmensagem");
-		return mv;
+		if (result.hasErrors()) {
+			logger.debug("O veiculo recebido para inserir não é válido");
+			logger.debug("Erros encontrados:");
+			for(FieldError erro : result.getFieldErrors()) {
+				logger.debug("{}", erro);
+			}
+			logger.trace("Encaminhando para o método direcionarParaInsercao");
+			return direcionarParaInsercaoVeiculo(veiculo);
+		} else {
+			veiculoService.salvar(veiculo);
+			atributos.addFlashAttribute("mensagem", "Contato inserido com sucesso!");
+			logger.trace("Redirecionando para a URL /veiculos/novo");
+			return new ModelAndView("redirect:/veiculos/novoVeiculo");
+		}
 	}
 	
 	@PostMapping("/alterar")

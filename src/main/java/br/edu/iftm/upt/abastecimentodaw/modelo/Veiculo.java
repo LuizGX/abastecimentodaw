@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "veiculo")
@@ -12,8 +14,17 @@ public class Veiculo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idveiculo;
+	
+	@NotBlank(message = "A placa é obrigatória")
+	@Size(min = 1, max = 45, message = "A placa deve ter entre 1 e 45 caracteres")
 	private String placa;
+	
+	@NotBlank(message = "O modelo é obrigatório")
+	@Size(min = 1, max = 45, message = "O modelo deve ter entre 1 e 45 caracteres")
 	private String modelo;
+	
+	@NotBlank(message = "O ano é obrigatório")
+	@Size(min = 1, max = 4, message = "O ano deve ter entre 1 e 4 caracteres")
 	private String ano;
 	
 	public Veiculo() {

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Gerenciador de Abastecimentos com Spring Boot</title>
+    <link rel='stylesheet' href="/css/cadastroveiculo.css">
 </head>
 <body>
 	<h1>Novo Veículo</h1>
@@ -12,18 +13,23 @@
 		<input type="hidden" th:field="*{idveiculo}">
 		<p>
 			<label for="placa">placa:</label>
-			<input type="text" id="placa" th:field="*{placa}" placeholder="placa">
+			<input type="text" id="placa" th:field="*{placa}" placeholder="placa" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('placa')}" th:each="erro : ${#fields.errors('placa')}" th:text="${erro} + '. '">Erro na placa</span>
 		</p>
 		<p>
 			<label for="modelo">modelo:</label>
-			<input type="text" id="modelo" th:field="*{modelo}" placeholder="modelo">
+			<input type="text" id="modelo" th:field="*{modelo}" placeholder="modelo" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('modelo')}" th:each="erro : ${#fields.errors('modelo')}" th:text="${erro} + '. '">Erro no modelo</span>
 		</p>
 		<p>
 			<label for="ano">ano:</label>
-			<input type="text" id="ano" th:field="*{ano}" placeholder="ano">
+			<input type="text" id="ano" th:field="*{ano}" placeholder="ano" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('ano')}" th:each="erro : ${#fields.errors('ano')}" th:text="${erro} + '. '">Erro no ano</span>
 		</p>
 		<input type="submit" value="Inserir">
 	</form>
+	
+	<h2 class="sucesso" th:if="${mensagem != '' and mensagem != null}" th:text="${mensagem}">Sucesso</h2>
 	
 	<a th:href="@{/}">Voltar</a>
 </body>
