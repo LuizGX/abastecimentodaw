@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Gerenciador de Abastecimentos com Spring Boot</title>
+    <link rel='stylesheet' href="/css/cadastroveiculo.css">
 </head>
 <body>
 	<h1>Novo Abastecimento</h1>
@@ -26,30 +27,38 @@
 		
 		<p>
 			<label for="dia">Data: </label>
-			<input type="text" id="dia" th:field="*{dia}" placeholder="dia">
+			<input type="text" id="dia" th:field="*{dia}" placeholder="dia" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('dia')}" th:each="erro : ${#fields.errors('dia')}" th:text="${erro} + '. '">Erro no dia</span>
 		</p>
 		<p>
 			<label for="hora">Hora: </label>
-			<input type="text" id="hora" th:field="*{hora}" placeholder="hora">
+			<input type="text" id="hora" th:field="*{hora}" placeholder="hora" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('hora')}" th:each="erro : ${#fields.errors('hora')}" th:text="${erro} + '. '">Erro na hora</span>
 		</p>
 		<p>
 			<label for="kmatual">kmatual:</label>
-			<input type="text" id="kmatual" th:field="*{kmatual}" placeholder="kmatual">
+			<input type="text" id="kmatual" th:field="*{kmatual}" placeholder="kmatual" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('kmatual')}" th:each="erro : ${#fields.errors('kmatual')}" th:text="${erro} + '. '">Erro na kilometragem atual</span>
 		</p>
 		<p>
 			<label for="valor">valor:</label>
-			<input type="text" id="valor" th:field="*{valor}" placeholder="valor">
+			<input type="text" id="valor" th:field="*{valor}" placeholder="valor" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('valor')}" th:each="erro : ${#fields.errors('valor')}" th:text="${erro} + '. '">Erro no valor</span>
 		</p>
 		<p>
 			<label for="litros">litros:</label>
-			<input type="text" id="litros" th:field="*{litros}" placeholder="litros">
+			<input type="text" id="litros" th:field="*{litros}" placeholder="litros" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('litros')}" th:each="erro : ${#fields.errors('litros')}" th:text="${erro} + '. '">Erro na litragem</span>
 		</p>
 		<p>
 			<label for="tipocombustivel">tipocombustivel:</label>
-			<input type="text" id="tipocombustivel" th:field="*{tipocombustivel}" placeholder="tipocombustivel">
+			<input type="text" id="tipocombustivel" th:field="*{tipocombustivel}" placeholder="tipocombustivel" th:errorclass="input-erro">
+			<span class="texto-erro" th:if="${#fields.hasErrors('tipocombustivel')}" th:each="erro : ${#fields.errors('tipocombustivel')}" th:text="${erro} + '. '">Erro no tipo de combustivel</span>
 		</p>
 		<input type="submit" value="Inserir">
 	</form>
+	
+	<h2 class="sucesso" th:if="${mensagem != '' and mensagem != null}" th:text="${mensagem}">Sucesso</h2>
 	
 	<a th:href="@{/}">Voltar</a>
 </body>

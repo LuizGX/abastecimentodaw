@@ -24,7 +24,7 @@ public class Veiculo {
 	private String modelo;
 	
 	@NotBlank(message = "O ano é obrigatório")
-	@Size(min = 1, max = 4, message = "O ano deve ter entre 1 e 4 caracteres")
+	@Size(min = 4, max = 4, message = "O ano deve ter 4 caracteres")
 	private String ano;
 	
 	public Veiculo() {

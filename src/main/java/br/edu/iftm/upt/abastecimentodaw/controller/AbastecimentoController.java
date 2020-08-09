@@ -3,14 +3,19 @@ package br.edu.iftm.upt.abastecimentodaw.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.iftm.upt.abastecimentodaw.modelo.Abastecimento;
 import br.edu.iftm.upt.abastecimentodaw.modelo.Usuario;
@@ -122,14 +127,23 @@ public class AbastecimentoController {
 	}
 	
 	@PostMapping("/novo")
-	public ModelAndView inserirNovoAbastecimento(Abastecimento abastecimento) {
+	public ModelAndView inserirNovoAbastecimento(@Valid Abastecimento abastecimento, BindingResult result, RedirectAttributes atributos) {
 		logger.trace("Entrou em inserirNovoAbastecimento");
 		logger.debug("Abastecimento recebido para inserir: {}", abastecimento);
-		abastecimentosService.salvar(abastecimento);
-		ModelAndView mv = new ModelAndView("mostrarmensagem");
-		mv.addObject("mensagem", "Abastecimento inserido com sucesso!");
-		logger.trace("Encaminhando para a view mostrarmensagem");
-		return mv;
+		if (result.hasErrors()) {
+			logger.debug("O abastecimento recebido para inserir não é válido");
+			logger.debug("Erros encontrados:");
+			for(FieldError erro : result.getFieldErrors()) {
+				logger.debug("{}", erro);
+			}
+			logger.trace("Encaminhando para o método direcionarParaInsercao");
+			return direcionarParaInsercao(abastecimento);
+		} else {
+			abastecimentosService.salvar(abastecimento);
+			atributos.addFlashAttribute("mensagem", "Abastecimento inserido com sucesso!");
+			logger.trace("Redirecionando para a URL /abastecimentos/novo");
+			return new ModelAndView("redirect:/abastecimentos/novo");
+		}
 	}
 
 

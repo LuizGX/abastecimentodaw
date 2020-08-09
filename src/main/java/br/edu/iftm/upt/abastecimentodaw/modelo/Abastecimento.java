@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "abastecimento")
@@ -30,11 +35,25 @@ public class Abastecimento implements Serializable{
 	@JoinColumn(name = "idusuario")
 	private Usuario usuario;
 	
+	@NotNull(message = "A data é obrigatória")
+	@Past(message = "O dia deve estar no passado")
 	private LocalDate dia;
+	
+	@NotNull(message = "A hora é obrigatória")
+	@Past(message = "A hora deve estar no passado")
 	private LocalTime hora;
+	
+	@Positive(message = "O Km atual deve ser positivo")
 	private double kmatual;
+	
+	@Positive(message = "O valor deve ser positivo")
 	private double valor;
+	
+	@Positive(message = "A litragem deve ser positiva")
 	private double litros;
+	
+	@NotBlank(message = "O tipo de combustível é obrigatório")
+	@Size(min = 1, max = 45, message = "O tipo de combustível deve ter entre 1 e 45 caracteres")
 	private String tipocombustivel;
 	
 	public Abastecimento() {

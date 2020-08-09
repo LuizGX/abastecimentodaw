@@ -81,8 +81,8 @@ public class VeiculoController {
 	
 	@PostMapping("novoVeiculo")
 	public ModelAndView inserirNovoVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes atributos) {
-		logger.trace("Entrou em inserirNovoAbastecimento");
-		logger.debug("Abastecimento recebido para inserir: {}", veiculo);
+		logger.trace("Entrou em inserirNovoVeiculo");
+		logger.debug("Veiculo recebido para inserir: {}", veiculo);
 		if (result.hasErrors()) {
 			logger.debug("O veiculo recebido para inserir não é válido");
 			logger.debug("Erros encontrados:");
@@ -93,7 +93,7 @@ public class VeiculoController {
 			return direcionarParaInsercaoVeiculo(veiculo);
 		} else {
 			veiculoService.salvar(veiculo);
-			atributos.addFlashAttribute("mensagem", "Contato inserido com sucesso!");
+			atributos.addFlashAttribute("mensagem", "Veiculo inserido com sucesso!");
 			logger.trace("Redirecionando para a URL /veiculos/novo");
 			return new ModelAndView("redirect:/veiculos/novoVeiculo");
 		}
