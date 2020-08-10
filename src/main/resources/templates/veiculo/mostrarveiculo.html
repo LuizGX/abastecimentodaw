@@ -9,7 +9,8 @@
 	<h1>Veiculo buscado pelo Id</h1>
 	
 	<form action="#" th:action="@{/veiculos/alterar}" th:object="${veiculo}" method="post">
-		<input type="hidden" th:field="*{idveiculo}">	
+		<input type="hidden" th:field="*{idveiculo}">
+		<input type="hidden" th:field="*{status}">
 		<p>
 			<label for="placa">Placa:</label>
 			<input type="text" id="placa" th:field="*{placa}" placeholder="placa">
