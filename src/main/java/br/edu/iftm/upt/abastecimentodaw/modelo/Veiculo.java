@@ -27,20 +27,24 @@ public class Veiculo {
 	@Size(min = 4, max = 4, message = "O ano deve ter 4 caracteres")
 	private String ano;
 	
+	private int status;
+	
 	public Veiculo() {
 	}
 
-	public Veiculo(String placa, String modelo, String ano) {
+	public Veiculo(String placa, String modelo, String ano, int status) {
 		this.placa = placa;
 		this.modelo = modelo;
 		this.ano = ano;
+		this.status = status;
 	}
 	
-	public Veiculo(long idveiculo, String placa, String modelo, String ano) {
+	public Veiculo(long idveiculo, String placa, String modelo, String ano, int status) {
 		this.idveiculo = idveiculo;
 		this.placa = placa;
 		this.modelo = modelo;
 		this.ano = ano;
+		this.status = status;
 	}
 
 	public long getIdveiculo() {
@@ -75,9 +79,18 @@ public class Veiculo {
 		this.ano = ano;
 	}
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "Veiculo [idveiculo=" + idveiculo + ", placa=" + placa + ", modelo=" + modelo + ", ano=" + ano + "]";
+		return "Veiculo [idveiculo=" + idveiculo + ", placa=" + placa + ", modelo=" + modelo + ", ano=" + ano
+				+ ", status=" + status + "]";
 	}
 
 	@Override

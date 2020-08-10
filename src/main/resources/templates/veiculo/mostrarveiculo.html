@@ -22,15 +22,21 @@
 			<label for="ano">Ano:</label>
 			<input type="text" id="ano" th:field="*{ano}" placeholder="ano">
 		</p>
+		<p>
+			<label for="status">Status:</label>
+			<input disabled type="text" id="status" th:field="*{status}" placeholder="status">
+		</p>
 		<input type="submit" value="Alterar">
 	</form>
-	<form action="#" th:action="@{/veiculos/confirmarremocao}" th:object="${veiculo}" method="post">
+	<div th:if="${veiculo.status} == 1">
+		<form action="#" th:action="@{/veiculos/confirmarremocao}" th:object="${veiculo}" method="post">
 			<input type="hidden" th:field="*{idveiculo}">	
 			<input type="hidden" th:field="*{placa}">
 			<input type="hidden" th:field="*{modelo}">
 			<input type="hidden" th:field="*{ano}">
 			<input type="submit" value="Remover">
 		</form>
+	</div>	
 	
 	<a th:href="@{/}">Voltar</a>
 </body>

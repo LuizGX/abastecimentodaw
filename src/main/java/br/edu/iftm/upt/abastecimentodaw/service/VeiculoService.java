@@ -21,6 +21,7 @@ private static final Logger logger = LoggerFactory.getLogger(AbastecimentoServic
 	public void salvar(Veiculo veiculo) {
 		logger.trace("Entrou em salvar");
 		logger.debug("Salvando o abastecimento {}", veiculo);
+		veiculo.setStatus(1);
 		veiculos.save(veiculo);
 		logger.debug("Abastecimento salvo com sucesso {}", veiculo);
 	}
@@ -37,7 +38,8 @@ private static final Logger logger = LoggerFactory.getLogger(AbastecimentoServic
 	public void remover(Veiculo veiculo) {
 		logger.trace("Entrou em remover");
 		logger.debug("Removendo o veiculo {}", veiculo);
-		veiculos.delete(veiculo);
+		veiculo.setStatus(0);
+		veiculos.save(veiculo);
 		logger.debug("Veiculo removido com sucesso {}", veiculo);
 	}
 

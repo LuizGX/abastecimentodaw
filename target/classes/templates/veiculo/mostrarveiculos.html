@@ -13,10 +13,19 @@
 		<p>placa: [[${veiculo.placa}]]</p>
 		<p>modelo: [[${veiculo.modelo}]]</p>
 		<p>ano: [[${veiculo.ano}]]</p>
+		<p>Status: [[${veiculo.status}]]</p>
 		<form action="#" th:action="@{/veiculos/buscar}" method="post">
 				<input type="hidden" name="idveiculo" th:value="*{veiculo.idveiculo}">
 				<input type="submit" value="Alterar">
 		</form>
+		<form action="#" th:action="@{/veiculos/confirmarremocao}" method="post" th:object="${veiculo}" th:if="${veiculo.status} == 1">
+			<input type="hidden" name="idveiculo" th:value="*{idveiculo}">	
+			<input type="hidden" name="placa" th:value="*{placa}">
+			<input type="hidden" name="modelo" th:value="*{modelo}">
+			<input type="hidden" name="ano" th:value="*{ano}">
+			<input type="submit" value="Remover">
+		</form>
+		
 		<hr>
 	</div>
 	

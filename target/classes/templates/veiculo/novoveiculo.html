@@ -11,6 +11,7 @@
 	
 	<form action="#" th:action="@{/veiculos/novoVeiculo}" th:object="${veiculo}" method="post">
 		<input type="hidden" th:field="*{idveiculo}">
+		<input type="hidden" th:field="*{status}">
 		<p>
 			<label for="placa">placa:</label>
 			<input type="text" id="placa" th:field="*{placa}" placeholder="placa" th:errorclass="input-erro">

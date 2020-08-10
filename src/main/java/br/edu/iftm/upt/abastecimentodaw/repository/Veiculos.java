@@ -8,4 +8,5 @@ import br.edu.iftm.upt.abastecimentodaw.modelo.Veiculo;
 
 public interface Veiculos extends JpaRepository<Veiculo, Long>{
 	List<Veiculo> findByModeloContainingIgnoreCase (String modelo);
+	List<Veiculo> findByStatus (int status);
 }

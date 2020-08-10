@@ -117,7 +117,7 @@ public class AbastecimentoController {
 		logger.trace("Entrou em direcionarParaInsercao");
 		logger.trace("Encaminhando para a view novoabastecimento");
 		
-		List<Veiculo> todosVeiculos = veiculos.findAll();
+		List<Veiculo> todosVeiculos = veiculos.findByStatus(1);
 		mv.addObject("veiculos",todosVeiculos);
 		
 		List<Usuario> todosUsuarios = usuarios.findAll();
