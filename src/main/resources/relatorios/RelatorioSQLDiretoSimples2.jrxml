@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioSQLDiretoSimples2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="277eb8cf-73f4-4806-a4ec-60c6b5e3f864">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[YWJhc3RlY2ltZW50b2Rhdy52ZWljdWxvIEFTICwxMDgsNTEsMjk3ZjE2MTktMjc2YS00MjExLTg5
+MzAtMjIzNTU1NTNmMmY1Ow==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Banco Abastecimento"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT abastecimentodaw.veiculo.idveiculo,
+	abastecimentodaw.veiculo.placa,
+	abastecimentodaw.veiculo.modelo,
+	abastecimentodaw.veiculo.ano,
+	abastecimentodaw.veiculo.status
+FROM abastecimentodaw.veiculo]]>
+	</queryString>
+	<field name="idveiculo" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="idveiculo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veiculo"/>
+	</field>
+	<field name="placa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="placa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veiculo"/>
+	</field>
+	<field name="modelo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="modelo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veiculo"/>
+	</field>
+	<field name="ano" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ano"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veiculo"/>
+	</field>
+	<field name="status" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="veiculo"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="50" uuid="acb561b4-69ff-424b-80db-62c908329499"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Veículos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="131" splitType="Stretch">
+			<textField>
+				<reportElement x="25" y="30" width="100" height="30" uuid="6d937063-b3fb-4dcd-9e4d-00965449980c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idveiculo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="0" width="100" height="30" uuid="1185ba87-80bd-4700-b99f-1f343a30300d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[idveiculo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="30" width="100" height="30" uuid="7bb0fa97-4679-4c30-bc8c-eb2badd5d7da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="125" y="0" width="100" height="30" uuid="41e316b8-c19f-411a-8da0-0f20ee064d37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[placa]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="225" y="30" width="100" height="30" uuid="0bb10c5b-010b-424e-a37b-1962ff7b3268"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="225" y="0" width="100" height="30" uuid="e700861c-43cf-460c-93dc-bfd0d615fc47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[modelo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="325" y="30" width="100" height="30" uuid="1d644ed0-a76f-4f35-8089-47c41d3dcea1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="325" y="0" width="100" height="30" uuid="00897b5c-3eaa-49be-9300-4e71eb4bafd9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ano]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="30" width="100" height="30" uuid="3b388f51-acd5-4a8b-9bcf-7b94a563ec98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="425" y="0" width="100" height="30" uuid="c6277b87-7407-46a5-9f78-b9aaf8b698be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[status]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="70" width="555" height="40" uuid="f8620452-9764-4667-8da6-9b2151854f33"/>
+				<subreportParameter name="IDVEICULO">
+					<subreportParameterExpression><![CDATA[$F{idveiculo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"RelatorioSQLSubAbastecimentos.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement positionType="Float" x="0" y="130" width="555" height="1" uuid="c1ff8d6f-a478-435c-aa4a-96eeef1197e7"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

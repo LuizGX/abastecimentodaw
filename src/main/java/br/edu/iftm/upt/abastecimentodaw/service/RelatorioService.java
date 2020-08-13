@@ -28,15 +28,12 @@ public class RelatorioService {
 	@Autowired
 	private DataSource dataSource;
 
-	@Autowired
-	private Veiculos repositorio;
-
 	public byte[] gerarRelatorioSimplesTodosAbastecimentos() {
 		logger.trace("Entrou em gerarRelatorioSimplesTodosAbastecimentos");
 
 		try (Connection conexao = dataSource.getConnection()) {
 			try {
-				ClassPathResource cpr = new ClassPathResource("relatorios/RelatorioSQLDiretoSimples.jasper");
+				ClassPathResource cpr = new ClassPathResource("relatorios/RelatorioSQLDiretoSimples2.jasper");
 				InputStream arquivoJasper = cpr.getInputStream();
 
 				String urlRelatorio = cpr.getURL().toString();

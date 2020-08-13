@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioSQLSubAbastecimentos" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="433b7dfa-b8b8-44da-a9cf-306670a554e8">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Banco Abastecimento"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="IDVEICULO" class="java.lang.Long"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT abastecimentodaw.abastecimento.idabastecimento,
+	abastecimentodaw.abastecimento.idveiculo,
+	abastecimentodaw.abastecimento.idusuario,
+	abastecimentodaw.abastecimento.dia,
+	abastecimentodaw.abastecimento.hora,
+	abastecimentodaw.abastecimento.kmatual,
+	abastecimentodaw.abastecimento.valor,
+	abastecimentodaw.abastecimento.litros,
+	abastecimentodaw.abastecimento.tipocombustivel
+FROM abastecimentodaw.abastecimento
+WHERE abastecimentodaw.abastecimento.idveiculo =  $P{IDVEICULO}]]>
+	</queryString>
+	<field name="idabastecimento" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="idabastecimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="idveiculo" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="idveiculo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="idusuario" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="idusuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="dia" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="dia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="hora" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="hora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="kmatual" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="kmatual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="valor" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="litros" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="litros"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<field name="tipocombustivel" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipocombustivel"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="abastecimento"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="478" height="40" uuid="944d6d2a-e15c-4f04-bfe3-015f920376c4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Abastecimentos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="30" width="80" height="30" uuid="97d2a2a9-dd01-4cc1-946b-6bfca7bbfd25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idabastecimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="30" uuid="0bc0e9d0-a628-4b4d-b918-add99d431bbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[idabastecimento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="30" width="80" height="30" uuid="fa1224c5-8394-4d6f-9692-dd1a4e1e808d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="0" width="80" height="30" uuid="7ecad32c-37dd-4414-9dee-e9e16e3ac869"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[dia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="30" width="80" height="30" uuid="76ca4114-e503-445b-97dd-ff6aa91d78f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="0" width="80" height="30" uuid="97540b93-e16e-4f3e-bcae-d7bf95d17cfd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[hora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="30" width="80" height="30" uuid="6f5a2d9f-1f57-4e09-9fb4-69baa0f53e14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="240" y="0" width="80" height="30" uuid="d064249d-217b-4baf-bccc-9c32baec34e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="320" y="30" width="80" height="30" uuid="92551c2f-d51c-419e-87cc-64ec19b4287c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{litros}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="0" width="80" height="30" uuid="af3e8408-61a2-4fd5-a857-c274144e5bd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[litros]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="30" width="78" height="30" uuid="79b9ed30-a57f-4467-988b-1db3438f1ae4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipocombustivel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="0" width="78" height="30" uuid="60435fa5-e214-47be-845f-3e152630d000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[tipocombustivel]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
