@@ -32,7 +32,7 @@ public class RelatoriosController {
 		logger.debug("Retornando o relatório simples de todos os abastecimentos");
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=Abastecimentos.pdf")
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=Veiculos.pdf")
 				.body(relatorio);
 	}
 	
