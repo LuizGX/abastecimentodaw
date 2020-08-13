@@ -74,6 +74,24 @@
 		    <version>3.4.2</version>
 		</dependency>
 
+		<!-- Adiciona a dependência do JasperReports -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.13.0</version>
+		</dependency>
+		
+		<!-- Adiciona as dependências de Segurança -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>	
+		</dependency>
+				
+
 		<!-- Adiciona dependências para facilitar o desenvolvimento -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

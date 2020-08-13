@@ -22,4 +22,17 @@ public class IndexController {
 		return mv;
 	}
 	
+	@GetMapping("/mostrarmensagem")
+	public String mostrarMensagem() {
+		return "mostrarmensagem";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		logger.trace("Entrou em login");
+		logger.trace("Encaminhando para a view login");
+		return "login";
+	}
+
+	
 }

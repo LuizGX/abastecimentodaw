@@ -1,0 +1,6 @@
+com.jaspersoft.studio.compatibility.version=6.13.0
+com.jaspersoft.studio.jr.compile.version=last
+com.jaspersoft.studio.theme.ui.dark=pageBackground\=0,0,0\ncontainerMarginColor\=0,255,0\ngridColor\=255,255,255\nelementDesignBorderColor\=255,255,0\npageMarginColor\=255,0,0\n
+com.jaspersoft.studio.theme.ui.light=pageBackground\=255,255,255\ncontainerMarginColor\=170,168,255\ngridColor\=192,192,192\nelementDesignBorderColor\=0,0,0\npageMarginColor\=170,168,255\n
+eclipse.preferences.version=1
+net.sf.jasperreports.JRPROPERTIES=net.sf.jasperreports.chrome.enabled\=true\ncom.jaspersoft.jasperreports.components.customvisualization.require.js\=file\\\:/C\\\:/Users/luizx/eclipse/jee-2020-06/eclipse/configuration/org.eclipse.osgi/1031/0/.cp/resources/scripts/require-2.1.6.src.js\nnet.sf.jasperreports.web.resource.pattern.customvisualization.scripts\=com/jaspersoft/jasperreports/customvisualization/resources/require/.*\nnet.sf.jasperreports.compiler.temp.dir\=C\\\:\\\\Users\\\\luizx\\\\Desktop\ncom.jaspersoft.jasperreports.components.customvisualization.phantomjs.executable.path\=phantomjs\nnet.sf.jasperreports.compiler.classpath\=C\\\:\\\\Users\\\\luizx\\\\eclipse\\\\jee-2020-06\\\\eclipse\\\\\\\\plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar\n

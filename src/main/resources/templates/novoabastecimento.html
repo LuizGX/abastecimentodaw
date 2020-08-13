@@ -7,6 +7,8 @@
     <link rel='stylesheet' href="/css/cadastroveiculo.css">
 </head>
 <body>
+	<div th:substituteby="index::logout"></div>
+	<br>
 	<h1>Novo Abastecimento</h1>
 	
 	<form action="#" th:action="@{/abastecimentos/novo}" th:object="${abastecimento}" method="post">
